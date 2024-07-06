@@ -1,0 +1,21 @@
+connect to RDS command: mysql -h udacity-db.cxerxzwzvssv.us-east-1.rds.amazonaws.com -u admin -p
+
+
+Create and insert data to Test table in udacity db
+mysql> USE udacity
+Database changed
+mysql> CREATE TABLE Test(id INT AUTO_INCREMENT PRIMARY KEY, data VARCHAR(100));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> INSERT INTO Test(data) VALUES('My First Records in my db')
+    -> ^C
+mysql> INSERT INTO Test(data) VALUES('My First Records in my db');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Test;
++----+---------------------------+
+| id | data                      |
++----+---------------------------+
+|  1 | My First Records in my db |
++----+---------------------------+
+1 row in set (0.00 sec)

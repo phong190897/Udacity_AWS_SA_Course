@@ -1,0 +1,32 @@
+[ec2-user@ip-10-2-11-160 ~]$ mysql -h udacity-db-read-replica.cscmsjkp65gt.us-west-1.rds.amazonaws.com -u admin -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 49
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> INSERT INTO Test(data) VALUES ('My Records From Read Replica')
+    -> ;
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql> INSERT INTO Test(data) VALUES ('My Records From Read Replica');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql> SELECT * FROM Test
+    -> ;
++----+---------------------------+
+| id | data                      |
++----+---------------------------+
+|  1 | My First Records in my db |
++----+---------------------------+
+1 row in set (0.00 sec)

@@ -1,0 +1,4 @@
+For RTO for a single AZ outage can be done within a minutes or two because it'll automatically switch to another AZ
+For RTO for a single region outage it can be a little bit longer because it need time to route the traffic and connection to the new regions
+For RPO for a single AZ outage it's nearly no data loss, because the data is write to multiple locations
+For RPO for a single region outage, we may have some data loss but not too much
